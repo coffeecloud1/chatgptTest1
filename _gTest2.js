@@ -249,7 +249,7 @@ var data = {
 var json = JSON.stringify(data);
 
 function openDialogWindow() {
-    var url = "/mes/Server/Template/dialog61.html";
+    var url = "/mes/Server/Template/dialog62.html";
     // var url = dialogHtml;
     url += "?data=" + encodeURIComponent(json);
 
