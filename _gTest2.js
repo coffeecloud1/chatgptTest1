@@ -212,11 +212,11 @@ function openNewWindow() {
     window.open(url, "_blank");
 }
 
-var data = {
-    _item_number: _item_number,
-    _company: _company,
-    _name: _name
-}
+// var data = {
+//     _item_number: _item_number,
+//     _company: _company,
+//     _name: _name
+// }
 
 var json = JSON.stringify(data);
 
@@ -239,14 +239,21 @@ function openDialogWindow() {
         "scroll:yes",
         "location:no"
     ];
+
+    var data = [
+        { name: "item_number", value: _item_number },
+        { name: "company", value: _company },"
+        { name: "name", value: _name }
+    ];
     
     var url = "/mes/Server/Template/dialog62.html";
-    url += "?_item_number=" + _item_number;
-    url += "&_company=" + _company;
-    url += "&_name=" + _name;
+    // url += "?_item_number=" + _item_number;
+    // url += "&_company=" + _company;
+    // url += "&_name=" + _name;
     // var newWindow = window.open(url, "제조사양서", features.join(","));
     var newWindow = window.open(url, "제조사양서", "height=1000px,width=1100px");
-    newWindow.focus();
+    newWindow.opener.postMessage(data, "*");
+    // newWindow.focus();
 }
 
 openDialogWindow();
