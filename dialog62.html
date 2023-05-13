@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <style type="text/css">
+        input[type=checkbox]:disabled+label {
+            color: #111111;
+            text-decoration: line-through;
+            cursor: not-allowed;
+        }
+
+        .table-main {
+            border-collapse: collapse;
+            width: 1100px;
+        }
+
+        .table-sub {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        .trsub2 {
+            height: 30px;
+        }
+
+        tr {
+            height: 40px;
+        }
+
+        td {
+            border-color: black;
+            border-style: solid;
+            border-width: 1px;
+            vertical-align: middle;
+            text-align: center;
+            font-size: 16px;
+            /* org: 20px */
+            font-weight: bold;
+            padding: 0px;
+            /*margin-bottom: 20px;*/
+        }
+
+        .tdmaintitle {
+            border-color: black;
+            border-style: solid;
+            border-width: 0px;
+            vertical-align: middle;
+            text-align: center;
+            font-size: 48px;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        .tdsubtitle {
+            border-color: black;
+            border-style: solid;
+            border-width: 0px;
+            vertical-align: middle;
+            text-align: center;
+            font-size: 36px;
+            font-weight: bold;
+            text-align: left;
+            padding: 10px;
+        }
+
+        .remarks {
+            border-color: black;
+            border-style: solid;
+            border-width: 0px;
+            vertical-align: middle;
+            text-align: left;
+            padding: 10px;
+        }
+
+        .tdtitle {
+            padding: 10px;
+            text-align: left;
+        }
+
+        .smalltext {
+            font-size: 12px;
+        }
+
+        .trlow {
+            height: 20px;
+        }
+
+    </style>
+	<script>
+		
+		var queryString = window.location.search;
+		var params = new URLSearchParams(queryString);
+		var json = params.get("data");
+		var data = JSON.parse(json);
+
+		// 각 데이터를 표시할 요소들을 가져옴
+		var _item_number1 = document.getElementById("_item_number");
+		var _company1 = document.getElementById("_company");
+		var _name1 = document.getElementById("_name");
+		// 30 ~ 50개의 요소들도 가져옴
+
+		// 각 요소의 내용을 변경함
+		// _item_number1.innerHTML = data._item_number;
+		_item_number1.innerHTML = "data._item_number";
+		_company1.innerHTML = data._company;
+		_name1.innerHTML = data._name;
+		// 30 ~ 50개의 요소들도 변경함
+		
+		alert(data._item_number);
+	</script>
+</head>
+
+<body>
+
+    <table class="table-main">
+        <tr>
+            <td class="tdtitle" width="12%">제품코드4</td>
+            <td class="tdtitle" width="18%" id="_item_number1"></td>
+            <td rowspan="2" class="tdmaintitle" width="40%">제조사양서</td>
+            <td rowspan="2" class="tdmaintitle" width="30%">
+                <table class="table-sub" width="100%">
+                    <tr style="height:20px">
+                        <td class="smalltext" rowspan="2" width="8%">결<br />재</td>
+                        <td class="smalltext" width="23%">영업</td>
+                        <td class="smalltext" width="23%">생산</td>
+                        <td class="smalltext" width="23%">Q.C</td>
+                        <td class="smalltext" width="23%">검토</td>
+                    </tr>
+                    <tr style="height:60px">
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td class="tdtitle">고객명</td>
+            <td class="tdtitle" id="_company1"></td>
+        </tr>
+    </table>
+
+    <table class="table-main">
+        <tr>
+            <td class="tdtitle" width="14%">제품명</td>
+            <td class="tdtitle" width="60%" id="_name1"></td>
+            <td width="5%">작성<br />일자</td>
+            <td class="tdtitle" colspan="3 width=" 21%">_created_on</td>
+        </tr>
+        <tr>
+            <td class="tdtitle">1. 규격</td>
+            <td class="tdtitle" colspan="3">_specification</td>
+            <td width="3%">폭<br />수</td>
+            <td class="tdtitle" width="7%">_no_of_widthcount</td>
+        </tr>
+        <tr>
+            <td class="tdtitle">2. 1매규격</td>
+            <td class="tdtitle" colspan="5">(가로: _length_per_sheet mm) x (세로: _width_per_sheet mm) x
+                (가제트: mm)</td>
+        </tr>
+        <tr>
+            <td class="tdtitle">3. 재질구성</td>
+            <td class="tdtitle" colspan="5">_material_description +`</td>
+        </tr>
+    </table>
+
+    <table class="table-main">
+        <tr>
+            <td class="tdtitle" width="14%">4. 총 두께</td>
+            <td class="tdtitle" width="16%">_thickness mm </td>
+            <td class="tdtitle" width="14%">5. AL광택면</td>
+            <td class="tdtitle" width="16%">
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" id="Matt" _Matt disabled
+                        style="color:yellow">
+                    <label class="form-check-label" for="Matt">무광</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" id="Glossy" _Glossy disabled>
+                    <label class="form-check-label" for="Glossy">유광</label>
+                </div>
+            </td>
+            <td class="tdtitle" rowspan="2" width="40%" style="padding-bottom:10px">
+                <table class="table-sub">
+                    7. 공정
+                    <tr class="trsub2">
+                        <td colspan="2">공정명</td>
+                        <td width="30%">업체명</td>
+                        <td width="20%">풀림방향(후)</td>
+                        <td width="20%">기준</td>
+                    </tr>
+                    <tr class="trsub2">
+                        <td width="5%">1</td>
+                        <td width="25%">_process_name1</td>
+                        <td>_process_company1</td>
+                        <td>_process_direction1</td>
+                        <td>_wind_direction_base</td>
+                    </tr>
+                    <tr class="trsub2">
+                        <td>2</td>
+                        <td>_process_name2</td>
+                        <td>_process_company2</td>
+                        <td>_process_direction2</td>
+                        <td></td>
+                    </tr>
+                    <tr class="trsub2">
+                        <td>3</td>
+                        <td>_process_name3</td>
+                        <td>_process_company3</td>
+                        <td>_process_direction3</td>
+                        <td></td>
+                    </tr>
+                    <tr class="trsub2">
+                        <td>4</td>
+                        <td>_process_name4</td>
+                        <td>_process_company4</td>
+                        <td>_process_direction4</td>
+                        <td></td>
+                    </tr>
+                    <tr class="trsub2">
+                        <td>5</td>
+                        <td>_process_name5</td>
+                        <td>_process_company5</td>
+                        <td>_process_direction5</td>
+                        <td></td>
+                    </tr>
+                    <tr class="trsub2">
+                        <td>6</td>
+                        <td>_process_name6</td>
+                        <td>_process_company6</td>
+                        <td>_process_direction6</td>
+                        <td></td>
+                    </tr>
+                    <tr class="trsub2">
+                        <td>7</td>
+                        <td>_process_name7</td>
+                        <td>_process_company7</td>
+                        <td>_process_direction7</td>
+                        <td></td>
+                    </tr>
+                    <tr class="trsub2">
+                        <td>8</td>
+                        <td>_process_name8</td>
+                        <td>_process_company8</td>
+                        <td>_process_direction8</td>
+                        <td></td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="4" style="padding-bottom:10px" class="tdtitle">
+                <table class="table-sub">
+                    6. 원단사양
+                    <tr>
+                        <td colspan="2">필름종류</td>
+                        <td width="10%">두께</td>
+                        <td width="10%">원단폭</td>
+                        <td width="18%">그레이드</td>
+                        <td width="18%">발주처</td>
+                        <td width="24%">필름특별<br />관리항목</td>
+                    </tr>
+                    <tr>
+                        <td width="5%">1</td>
+                        <td width="15%">_film_name1</td>
+                        <td>_film_thickness1</td>
+                        <td>_film_width1</td>
+                        <td></td>
+                        <td>_film_company1</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>_film_name2</td>
+                        <td>_film_thickness2</td>
+                        <td>_film_width2</td>
+                        <td></td>
+                        <td>_film_company2</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>_film_name3</td>
+                        <td>_film_thickness3</td>
+                        <td>_film_width3</td>
+                        <td></td>
+                        <td>_film_company3</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>_film_name4</td>
+                        <td>_film_thickness4</td>
+                        <td>_film_width4</td>
+                        <td></td>
+                        <td>_film_company4</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>_film_name5</td>
+                        <td>_film_thickness5</td>
+                        <td>_film_width5</td>
+                        <td></td>
+                        <td>_film_company5</td>
+                        <td></td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+
+    <br />
+	
+</body>
+
+</html>
