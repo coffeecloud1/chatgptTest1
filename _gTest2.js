@@ -203,34 +203,6 @@ if (isNaN(myDate.getTime())) {
 //   alert("날짜: " + _created_on);
 }
 
-// 보안문제로 작동 안하는 것 같음 
-// function setFieldValues(fieldValues) {
-//     var _item_number = fieldValues._item_number;
-//     var _name = fieldValues._name;
-//     // 필드 값이 더 많으면 여기에 추가합니다.
-
-//     // 필드 값을 폼에 설정합니다.
-//     document.getElementById("_item_number").value = _item_number;
-//     document.getElementById("_name").value = _name;
-//     // 필드 값이 더 많으면 여기에 추가합니다.
-// }
-
-var width = 2000;
-var height = 1200;
-var left = window.screenLeft || window.screenX;
-var top1 = window.screenTop || window.screenY;
-
-var features_a = [
-    "Width:" + width + "px",
-    "Height:" + height + "px",
-    "Left:" + left + "px",
-    "Top:" + top1 + "px",
-    "resizable:yes",
-    "scroll:yes",
-    "location:no"
-];
-
-
 // 클릭 이벤트에 대한 핸들러 함수
 function openNewWindow() {
     // 새 창의 URL
@@ -249,17 +221,16 @@ var data = {
 var json = JSON.stringify(data);
 
 function openDialogWindow() {
-    var url = "/mes/Server/Template/dialog62.html";
-    // var url = dialogHtml;
-    url += "?data=" + encodeURIComponent(json);
-
-
     var width = 1200;
     var height = 1200;
     var left = window.screenLeft || window.screenX;
     var top = window.screenTop || window.screenY;
 
     var features = [
+        "Width:" + width + "px",
+        "Height:" + height + "px",
+        "Left:" + left + "px",
+        "Top:" + top + "px",
         "dialogWidth:" + width + "px",
         "dialogHeight:" + height + "px",
         "dialogLeft:" + left + "px",
@@ -268,54 +239,14 @@ function openDialogWindow() {
         "scroll:yes",
         "location:no"
     ];
-
-    // var fieldValues = {
-    //     _item_number: document.thisItem.getProperty('_item_number', '-'),
-    //     _name: document.thisItem.getProperty('_item_number', '-')
-    // };
-
-    // window.showModalDialog(dialogHtml, null, features.join(";"));
-    var newWindow = window.open(url, "_blank", features.join(","));
-    // newWindow.document.write(url);
-
-    // var newWindow = window.open("", "", "width=1120,height=700,left=10,top=10,menubar='no'");
-    // var newWindow = window.open("", "", features_a.join(","));
-    // newWindow.document.write(dialogHtml);
+    
+    var url = "/mes/Server/Template/dialog62.html";
+    url += "?_item_number=" + _item_number;
+    url += "&_company=" + _company;
+    url += "&_name=" + _name;
+    // var newWindow = window.open(url, "제조사양서", features.join(","));
+    var newWindow = window.open(url, "제조사양서", "height=1000px,width=1100px");
     newWindow.focus();
 }
 
-// 보안문제로 작동 안하는 것 같음 
-// openDialogWindow.onload = function () {
-//     openDialogWindow.setFieldValues(fieldValues);
-// };
-
-
 openDialogWindow();
-
-
-// // 버튼 클릭 시 실행되는 함수
-// function openNewWindow() {
-//   // 새 창의 너비와 높이 설정
-//   var width = 500;
-//   var height = 500;
-
-//   // 새 창 위치 설정
-//   var left = (screen.width / 2) - (width / 2);
-//   var top = (screen.height / 2) - (height / 2);
-  
-//   var url = "/mes/Server/Template/dialog6.html";
-
-//   // 새 창 열기
-//   var newWindow = window.open(url, '새 창 이름', 'toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=yes, resizable=yes, width=' + width + ', height=' + height + ', top=' + top + ', left=' + left);
-
-//   // 새 창이 열리지 않은 경우 예외 처리
-//   if (newWindow == null || typeof(newWindow) == 'undefined') {
-//     alert('팝업 창이 차단되었습니다. 팝업 차단을 해제한 후 다시 시도해주세요.');
-//     return false;
-//   }
-
-//   // 새 창에서 콘텐츠를 가져오기
-//   newWindow.location.href = url;
-// }
-
-// openNewWindow();
