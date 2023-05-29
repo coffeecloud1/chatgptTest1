@@ -75,24 +75,8 @@ var data = {
 var json = JSON.stringify(data);
 
 function openDialogWindow() {
-
-    // var data = [
-    //     { name: "item_number", value: _item_number },
-    //     { name: "company", value: _company },"
-    //     { name: "name", value: _name }
-    // ];
     
-    var url = "/mes/Server/Template/gFinish03.html";
-    url += "?_item_number=" + _item_number;
-    
-    url += "&_f_finish_type=" + _f_finish_type;
-    url += "&_f_openside=" + _f_openside;
-    url += "&_f_leftsealing=" + _f_leftsealing;
-    url += "&_f_round=" + _f_round;
-    url += "&_f_hole=" + _f_hole;
-    url += "&_f_hole_position=" + _f_hole_position;
-    url += "&_f_hole_size=" + _f_hole_size;
-    url += "&_f_hole_shape=" + _f_hole_shape;
+    var url = "/mes/Server/Template/gFinish_input_01.html";
     
     // var newWindow = window.open(url, "제조사양서", features.join(","));
     var newWindow = window.open(url, "제조사양서", "height=450px,width=550px");
