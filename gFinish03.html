@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <style type="text/css">
+        input[type=checkbox]:disabled+label {
+            color: #111111;
+            text-decoration: line-through;
+            cursor: not-allowed;
+        }
+
+        .table-main {
+            border-collapse: collapse;
+            width: 550px;
+        }
+
+        .table-sub {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        .trsub2 {
+            height: 30px;
+        }
+
+        tr {
+            height: 40px;
+        }
+
+        td {
+            border-color: black;
+            border-style: solid;
+            border-width: 1px;
+            vertical-align: middle;
+            text-align: center;
+            font-size: 16px;
+            /* org: 20px */
+            font-weight: bold;
+            padding: 0px;
+            /*margin-bottom: 20px;*/
+        }
+
+        .tdmaintitle {
+            border-color: black;
+            border-style: solid;
+            border-width: 0px;
+            vertical-align: middle;
+            text-align: center;
+            font-size: 48px;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        .tdsubtitle {
+            border-color: black;
+            border-style: solid;
+            border-width: 0px;
+            vertical-align: middle;
+            text-align: center;
+            font-size: 36px;
+            font-weight: bold;
+            text-align: left;
+            padding: 10px;
+        }
+
+        .remarks {
+            border-color: black;
+            border-style: solid;
+            border-width: 0px;
+            vertical-align: middle;
+            text-align: left;
+            padding: 10px;
+        }
+
+        .tdtitle {
+            padding: 10px;
+            text-align: left;
+        }
+
+        .smalltext {
+            font-size: 12px;
+        }
+
+        .trlow {
+            height: 20px;
+        }
+        
+        .td-left-align {
+            text-align: left;
+            padding-left: 10px;
+        }
+
+        input[type=text] {
+            width: 80px;
+            height: 20px;
+        }
+
+    </style> 
+</head>
+
+<body>
+
+    <table class="table-main">
+        <tr>
+            <td colspan="2" class="tdsubtitle">봉투제조표준</td>
+        </tr>
+        <tr>
+            <td width="10%">봉투형태</td>
+            <td width="40%" class="smalltext td-left-align">
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="_f_finish_type_Options" id="_f_sambang" style="color:yellow">
+                    <label class="form-check-label" for="_f_sambang">삼방</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="_f_finish_type_Options" id="_f_zipsambang">
+                    <label class="form-check-label" for="_f_zipsambang">지퍼삼방</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="_f_finish_type_Options" id="_f_stand">
+                    <label class="form-check-label" for="_f_stand">스텐드</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="_f_finish_type_Options" id="_f_zipstand">
+                    <label class="form-check-label" for="_f_zipstand">지퍼스텐드</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="_f_finish_type_Options" id="_f_mbang">
+                    <label class="form-check-label" for="_f_mbang">M방</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="_f_finish_type_Options" id="_f_msealing">
+                    <label class="form-check-label" for="_f_msealing">M실링</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="_f_finish_type_Options" id="_f_open">
+                    <label class="form-check-label" for="_f_open">오픈</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="_f_finish_type_Options" id="_f_zip">
+                    <label class="form-check-label" for="_f_zip">지퍼</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="_f_finish_type_Options" id="_f_pull">
+                    <label class="form-check-label" for="_f_pull">풀발이</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="_f_finish_type_Options" id="_f_heda">
+                    <label class="form-check-label" for="_f_heda">헤다</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="_f_finish_type_Options" id="_f_etc">
+                    <label class="form-check-label" for="_f_etc">기타</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input type="text" class="form-control smalltext" aria-label="Text input with checkbox" style="width:80px" id="_f_etc_value">
+                </div>
+			</td>
+        </tr>
+        <tr class="trlow">
+            <td>개구방향</td>
+            <td class="smalltext td-left-align">
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="_f_openside_options" id="_f_openside_up">
+                    <label class="form-check-label" for="_f_openside_up">위</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="_f_openside_options" id="_f_openside_down">
+                    <label class="form-check-label" for="_f_openside_down">아래</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="_f_openside_options" id="_f_openside_etc">
+                    <label class="form-check-label" for="_f_openside_etc">기타</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input type="text" class="form-control smalltext" aria-label="Text input with checkbox" id="_f_openside_etc_value">
+                </div>
+            </td>
+        </tr>
+        <tr class="trlow">
+            <td>씰링두께</td>
+            <td class="smalltext td-left-align">
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="_f_sealing_options" id="_f_sealing_10">
+                    <label class="form-check-label" for="sealing_10">10 mm</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="_f-sealing_options" id="_f_sealing_7">
+                    <label class="form-check-label" for="sealing_7">7.5 mm</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="_f-sealing_options" id="_f_sealing_5">
+                    <label class="form-check-label" for="sealing_5">5 mm</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="_f-sealing_options" id="_f_sealing_etc">
+                    <label class="form-check-label" for="sealing_etc">기타</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input type="text" class="form-control smalltext" aria-label="Text input with checkbox" id="_f_sealing_etc_value">
+                </div>
+            </td>
+        </tr>
+        <tr class="trlow">
+            <td>라운딩</td>
+            <td class="smalltext td-left-align">
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="_f_round_options" id="_f_round_0">
+                    <label class="form-check-label" for="_f_round_0">무</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="_f_round_options" id="_f_round_1">
+                    <label class="form-check-label" for="_f_round_1">유</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="_f_round_options" id="_f_round_etc">
+                    <label class="form-check-label" for="_f_round_etc">기타</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input type="text" class="form-control smalltext" aria-label="Text input with checkbox" id="_f_round_etc_value">
+                </div>
+            </td>
+        </tr>
+        <tr class="trlow">
+            <td>타공</td>
+            <td class="smalltext td-left-align">
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="_f_funching_options" id="_f_hole_1">
+                    <label class="form-check-label" for="_f_hole_1">유</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <label class="form-check-label" for="_f_hole_size">(크기: </label>
+                    <input type="text" class="form-control" aria-label="Text input with checkbox" id="_f_hole_size">
+                </div>
+                <div class="form-check form-check-inline">
+                    <label class="form-check-label" for="_f_hole_shape">모양: </label>
+                    <input type="text" class="form-control" aria-label="Text input with checkbox" id="_f_hole_shape">
+                </div>
+                <div class="form-check form-check-inline">
+                    <label class="form-check-label" for="_f_hole_position">위치: </label>
+                    <input type="text" class="form-control" aria-label="Text input with checkbox" id="_f_hole_position">
+                    <label class="form-check-label" for="_f_hole_position">  )</label>
+                </div>
+                <br>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="_f_funching_options" id="_f_hole_0">
+                    <label class="form-check-label" for="_f_hole_0">무</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="_f_funching_options" id="_f_hole_etc">
+                    <label class="form-check-label" for="_f_hole_etc">기타</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input type="text" class="form-control smalltext" aria-label="Text input with checkbox" id="_f_hole_etc_value">
+                </div>
+            </td>
+        </tr>
+        <tr class="trlow">
+            <td>V컷팅위치</td>
+            <td class="smalltext td-left-align">
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="_f_cutting_options" id="_f_cutting_0">
+                    <label class="form-check-label" for="_f_cutting_0">무</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="_f_cutting_options" id="_f_cutting_1">
+                    <label class="form-check-label" for="_f_cutting_1">유</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <label class="form-check-label" for="zipper_location">(위치:</label>
+                    <input type="text" class="form-control" aria-label="Text input with checkbox" style="width:60px" id="_f_cutting_location">
+                    <label class="form-check-label" for="_f_cutting_location"> )</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="_f_cutting_options" id="_f_cutting_etc">
+                    <label class="form-check-label" for="_f_cutting_etc">기타</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input type="text" class="form-control smalltext" aria-label="Text input with checkbox" id="_f_cutting_etc_value">
+                </div>
+            </td>
+        </tr>
+        <tr class="trlow">
+            <td>지퍼위치</td>
+            <td class="smalltext td-left-align">
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="_f_zipper_options" id="_f_zipper_0">
+                    <label class="form-check-label" for="_f_zipper_0">무</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="_f_zipper_options" id="_f_zipper_0">
+                    <label class="form-check-label" for="_f_zipper_0">유</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <label class="form-check-label" for="zipper_location">( 위치 :</label>
+                    <input type="text" class="form-control" aria-label="Text input with checkbox" style="width:60px" id="_f_zipper_location">
+                    <label class="form-check-label" for="_f_zipper_location"> )</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="_f_zipper_options" id="zipper_etc">
+                    <label class="form-check-label" for="zipper_etc">기타</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input type="text" class="form-control smalltext" aria-label="Text input with checkbox" id="zipper_etc_value">
+                </div>
+            </td>
+        </tr>
+        <tr class="trlow">
+            <td>밑지</td>
+            <td class="smalltext td-left-align">
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="_f_stand_options" id="_f_stand_0">
+                    <label class="form-check-label" for="_f_stand_0">무</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="_f_stand_options" id="_f_stand_1">
+                    <label class="form-check-label" for="_f_stand_1">유</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <label class="form-check-label" for="_f_stand_location">(크기:</label>
+                    <input type="text" class="form-control" aria-label="Text input with checkbox" style="width:60px" id="_f_stand_location">
+                    <label class="form-check-label" for="_f_stand_location"> )</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="_f_stand_options" id="_f_stand_etc">
+                    <label class="form-check-label" for="_f_stand_etc">기타</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input type="text" class="form-control smalltext" aria-label="Text input with checkbox" id="_f_stand_etc_value">
+                </div>
+            </td>
+        </tr>
+        <tr class="trlow">
+            <td>밸브</td>
+            <td class="smalltext td-left-align">
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="_f_valve_options" id="_f_valve_1">
+                    <label class="form-check-label" for="_f_valve_1">유</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <label class="form-check-label" for="_f_valve_size">(크기: </label>
+                    <input type="text" class="form-control" aria-label="Text input with checkbox" id="_f_valve_size">
+                </div>
+                <div class="form-check form-check-inline">
+                    <label class="form-check-label" for="_f_valve_shape">모양: </label>
+                    <input type="text" class="form-control" aria-label="Text input with checkbox" id="_f_valve_shape">
+                </div>
+                <div class="form-check form-check-inline">
+                    <label class="form-check-label" for="_f_valve_location">위치: </label>
+                    <input type="text" class="form-control" aria-label="Text input with checkbox" id="_f_valve_location">
+                    <label class="form-check-label" for="_f_valve_location">  )</label>
+                </div>
+                <br>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="_f_funching_options" id="_f_valve_0">
+                    <label class="form-check-label" for="_f_valve_0">무</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="_f_funching_options" id="_f_valve_etc">
+                    <label class="form-check-label" for="_f_valve_etc">기타</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input type="text" class="form-control smalltext" aria-label="Text input with checkbox" id="_f_valve_etc_value">
+                </div>
+            </td>
+        </tr>
+        <tr class="trlow">
+            <td>포장수량</td>
+            <td class="smalltext td-left-align">
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="_f_qty_options" id="_f_qty_perbox">
+                    <label class="form-check-label" for="_f_qty_perbox">(</label>
+                    <input type="text" class="form-control smalltext" aria-label="Text input with checkbox" style="width:60px" id="_f_qty_perbox_value">
+                    <label class="form-check-label" for="_f_qty_perbox_value">매/박스)</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="_f_qty_options" id="_f_qty_perpack">
+                    <label class="form-check-label" for="_f_qty_perpack">(</label>
+                    <input type="text" class="form-control smalltext" aria-label="Text input with checkbox" style="width:60px" id="_f_qty_perpack_value">
+                    <label class="form-check-label" for="_f_qty_perpack_value">매/묶음)</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="_f_qty_options" id="_f_qty_etc">
+                    <label class="form-check-label" for="_f_qty_etc">기타</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input type="text" class="form-control smalltext" aria-label="Text input with checkbox" style="width:60px" id="_f_qty_etc_value">
+                </div>
+            </td>
+        </tr>
+        <tr style="height:70px">
+            <td>중요<br />사항</td>
+            <td colspan="7"></td>
+        </tr>
+    </table>
+
+	<script>
+		var queryString = window.location.search;
+		var params = new URLSearchParams(queryString);
+		var _item_number = params.get("_item_number");
+
+		/* document.getElementById("_item_number").textContent = _item_number; */
+		
+		var _f_finish_type = params.get("_f_finish_type");
+
+        if(_f_finish_type === "삼방"){
+            document.getElementById("_f_sambang").checked = true;
+        } 
+        else if(_f_finish_type === "지퍼삼방") document.getElementById("_f_zipsambang").checked = true;
+        else if(_f_finish_type === "스텐드") document.getElementById("_f_stand").checked = true;
+        else if(_f_finish_type === "지퍼스텐드") document.getElementById("_f_zipstand").checked = true;
+        else if(_f_finish_type === "M방") document.getElementById("_f_mbang").checked = true;
+        else if(_f_finish_type === "M실링") document.getElementById("_f_msealing").checked = true;
+        else if(_f_finish_type === "오픈") document.getElementById("_f_open").checked = true;
+        else if(_f_finish_type === "지퍼") document.getElementById("_f_zip").checked = true;
+        else if(_f_finish_type === "풀발이") document.getElementById("_f_pull").checked = true;
+        else if(_f_finish_type === "헤다") document.getElementById("_f_heda").checked = true;
+        else if(_f_finish_type === "-") {
+            document.getElementById("_f_etc").checked = true;
+            document.getElementById("_f_etc_value").value = "해당 없음";
+        }
+        else {
+            document.getElementById("_f_etc_value").value = _f_finish_type;
+        } 
+        
+		var _f_openside = params.get("_f_openside");
+        if(_f_openside == "위") document.getElementById("_f_openside_up").checked = true;
+        else if(_f_openside == "아래") document.getElementById("_f_openside_down").checked = true;
+        else {
+            document.getElementById("_f_openside_etc").checked = true;
+            document.getElementById("_f_openside_etc_value").value = _f_openside;
+        } 
+
+        var _f_leftsealing = params.get("_f_leftsealing");
+        if(_f_leftsealing == "10") document.getElementById("_f_sealing_10").checked = true;
+        else if(_f_leftsealing == "7") document.getElementById("_f_sealing_7").checked = true;
+        else if(_f_leftsealing == "5") document.getElementById("_f_sealing_5").checked = true;
+        else{
+            document.getElementById("_f_sealing_etc").checked = true;
+            document.getElementById("_f_sealing_etc_value").value = _f_leftsealing + " mm";
+        }
+
+        var _f_round = params.get("_f_round");
+        if(_f_round == "유") document.getElementById("_f_round_1").checked = true;
+        else if(_f_round == "무") document.getElementById("_f_round_0").checked = true;
+        else{
+            document.getElementById("_f_round_etc").checked = true;
+            document.getElementById("_f_round_etc_value").value = _f_round;
+        }
+
+        var _f_hole = params.get("_f_hole");
+        var _f_hole_position = params.get("_f_hole_position");
+        if(typeof _f_hole === undefined || !_f_hole || _f_hole.trim() === ""){
+            document.getElementById("_f_hole_0").checked = true;
+        } 
+        else if(!_f_hole) {
+            document.getElementById("_f_hole_1").checked = true;
+            document.getElementById("_f_hole_position").value = _f_hole_position;
+        }
+        else{
+            document.getElementById("_f_hole_etc").checked = true;
+            document.getElementById("_f_hole_etc_value").value = _f_hole;
+        }
+      
+        // 부모 창으로 메시지를 전송합니다.
+        function sendMsg_finish_type() {
+            var p_finish_type;
+            if (document.getElementById("_f_sambang").checked) p_finish_type = "삼방";
+            else if (document.getElementById("_f_zipsambang").checked) p_finish_type = "지퍼삼방";
+            else if (document.getElementById("_f_stand").checked) p_finish_type = "스탠드";
+            else if (document.getElementById("_f_zipstand").checked) p_finish_type = "지퍼스탠드";
+            else if (document.getElementById("_f_mbang").checked) p_finish_type = "M방";
+            else if (document.getElementById("_f_msealing").checked) p_finish_type = "M실링";
+            else if (document.getElementById("_f_open").checked) p_finish_type = "오픈";
+            else if (document.getElementById("_f_zip").checked) p_finish_type = "지퍼";
+            else if (document.getElementById("_f_pull").checked) p_finish_type = "풀발이";
+            else if (document.getElementById("_f_heda").checked) p_finish_type = "헤다";
+            else if (document.getElementById("_f_etc").checked) p_finish_type = "기타";
+            
+            window.opener.document.getElementById("_f_finish_type_ret").text = p_finish_type;
+        }
+
+        function sendMsg_openside(){
+            var p_openside;
+            if (document.getElementById("_f_openside_up").checked) p_openside = "위";
+            if (document.getElementById("_f_openside_down").checked) p_openside = "아래";
+            if (document.getElementById("_f_openside_etc").checked) p_openside = "기타";
+
+
+
+            window.opener.document.getElementById("_f_openside_ret").text = p_openside;
+        }
+
+        // 체크박스에 이벤트 리스너 추가
+        document.getElementById("_f_sambang").addEventListener("click", sendMsg_finish_type);
+        document.getElementById("_f_zipsambang").addEventListener("click", sendMsg_finish_type);
+        document.getElementById("_f_stand").addEventListener("click", sendMsg_finish_type);
+        document.getElementById("_f_zipstand").addEventListener("click", sendMsg_finish_type);
+        document.getElementById("_f_mbang").addEventListener("click", sendMsg_finish_type); 
+        document.getElementById("_f_msealing").addEventListener("click", sendMsg_finish_type);
+        document.getElementById("_f_open").addEventListener("click", sendMsg_finish_type);
+        document.getElementById("_f_zip").addEventListener("click", sendMsg_finish_type);
+        document.getElementById("_f_pull").addEventListener("click", sendMsg_finish_type);
+        document.getElementById("_f_heda").addEventListener("click", sendMsg_finish_type);
+        document.getElementById("_f_etc").addEventListener("click", sendMsg_finish_type);
+        
+        document.getElementById("_f_openside_up").addEventListener("click", sendMsg_openside);
+        document.getElementById("_f_openside_down").addEventListener("click", sendMsg_openside);
+        document.getElementById("_f_openside_etc").addEventListener("click", sendMsg_openside);
+
+        /* // 간략한 방법 - 실행 안됨
+        function sendMsg_finish_type() {
+            var p_finish_type;
+            var checkboxes = document.querySelectorAll('input[name="_f_finish_type_Options"]');
+            
+            checkboxes.forEach(function(checkbox) {
+                if (checkbox.checked) {
+                    p_finish_type = checkbox.value;
+                    return;
+                }
+            });
+        
+            window.opener.document.getElementById("_f_finish_type_ret").textContent = p_finish_type;
+        }
+        
+        var checkboxes = document.querySelectorAll('input[name="_f_finish_type_Options"]');
+        checkboxes.forEach(function(checkbox) {
+            checkbox.addEventListener("click", sendMsg_finish_type);
+        }); */
+        
+	</script>
+</body>
+
+</html>
